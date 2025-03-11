@@ -19,7 +19,7 @@ def class_indep_matrix(y_true, y_score, abs_tolerance=1e-8):
         lexicographical order of the labels in y_true.
 
     abs_tolerance : absolute tolerance threshold for checking whether probabilities
-        sum up to 1.0.
+        sum up to 1.0. Default = 1e-8.
 
     Returns
     ----------
@@ -71,7 +71,7 @@ def class_spec_matrix(y_true, y_score, abs_tolerance=1e-8):
         lexicographical order of the labels in y_true.
 
     abs_tolerance : absolute tolerance threshold for checking whether probabilities
-        sum up to 1.0.
+        sum up to 1.0. Default = 1e-8.
 
     Returns
     ----------
@@ -120,7 +120,7 @@ def class_spec_matrix(y_true, y_score, abs_tolerance=1e-8):
 
 def plot_class_spec(y_true, y_score, output_fig_path = None):
     """
-    Plots and shows the class-specific serendipity matrix horizontal bar chart. and saves them in format .png.
+    Plots and shows the class-specific serendipity matrix horizontal bar chart and saves them in format .png.
 
     Parameters
     ----------
