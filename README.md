@@ -25,14 +25,14 @@ pip install .
 
 ```python
 from serendipity_matrix import class_indep_matrix, class_spec_matrix, plot_class_spec
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import GaussianNB
 from sklearn.datasets import load_digits
 
 # Loads the dataset
 X, y = load_digits(return_X_y=True)
 
 # Training and predict
-model = RandomForestClassifier(random_state=0).fit(X, y)
+model = GaussianNB().fit(X, y)
 result = model.predict_proba(X)
 
 # Calculates and prints the class-independent serendipity matrix
