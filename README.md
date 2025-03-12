@@ -24,23 +24,47 @@ pip install .
 ## Sample usage
 
 ```python
-from serendipity_matrix import class_spec_matrix, plot_class_spec
+from serendipity_matrix import class_indep_matrix, class_spec_matrix, plot_class_spec
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.datasets import load_digits
 
+# Loads the dataset
 X, y = load_digits(return_X_y=True)
 
-model = GaussianNB().fit(X, y)
+# Training and predict
+model = RandomForestClassifier(random_state=0).fit(X, y)
 result = model.predict_proba(X)
 
-ci_matrix = class_indep_matrix(y,result)
+# Calculates and prints the class-independent serendipity matrix
+ci_matrix = class_indep_matrix(y, result)
 print(ci_matrix)
 
-cs_matrix = class_spec_matrix(y,result)
+# Calculates and prints the class-specific serendipity matrix
+cs_matrix = class_spec_matrix(y, result)
 print(cs_matrix)
 
-plot_class_spec(y,result)
+# Plots the class-specific serendipity matrix
+plot_class_spec(y, result)
 ```
+
+## Result sample
+
+### Class-independent serendipity matrix
+
+|Reliability|Overconfidence|Underconfidence|Serendipity|
+|:---------:|:------------:|:-------------:|:---------:|
+|     |    |     |          |
+
+### Class-specific serendipity matrix
+
+|CLASS_NAME|Reliability|Overconfidence|Underconfidence|Serendipity|
+|:--------:|:---------:|:------------:|:-------------:|:---------:|
+|    |     |    |     |          |
+|    |     |    |     |          |
+|    |     |    |     |          |
+
+![Class-specific serendipity matrix](Resources/Example_class-specific_serendipity_matrix_for_digits_dataset.png)
+
 
 ## Citation
 
