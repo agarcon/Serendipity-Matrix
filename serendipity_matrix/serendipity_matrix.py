@@ -106,10 +106,12 @@ def class_spec_matrix(y_true, y_score, abs_tolerance=1e-8):
     # Computes the serendipity matrix by class
     for i in range(certM.shape[0]):
         sum = np.sum(certM[:,i], axis=0) + np.sum(uncertM[:,i], axis=0)
-        serendipityM["Reliability"][i] += certM[i][i]/sum
-        serendipityM["Overconfidence"][i] += (np.sum(certM[:,i], axis=0) - certM[i][i])/sum
-        serendipityM["Serendipity"][i] += uncertM[i][i]/sum
-        serendipityM["Underconfidence"][i] += (np.sum(uncertM[:,i], axis=0) - uncertM[i][i])/sum
+        
+        if sum != 0:
+            serendipityM["Reliability"][i] += certM[i][i]/sum
+            serendipityM["Overconfidence"][i] += (np.sum(certM[:,i], axis=0) - certM[i][i])/sum
+            serendipityM["Serendipity"][i] += uncertM[i][i]/sum
+            serendipityM["Underconfidence"][i] += (np.sum(uncertM[:,i], axis=0) - uncertM[i][i])/sum
 
     # Sorts the serendipity matrix
     serendipityM["CLASS_NAME"] = np.array(classes)
@@ -202,6 +204,7 @@ def plot_class_spec(y_true, y_score, output_fig_path = None):
 
     # Shows the chart or saves it on the gived path
     if output_fig_path == None:
+        plt.tight_layout()
         plt.show()
     else:
         plt.savefig(output_fig_path, bbox_inches="tight", dpi=300)
@@ -333,5 +336,6 @@ def _serendipityMatrix(certM, uncertM):
     uncertAcc = np.sum (uncertM) - np.trace(uncertM)
 
     serendipityM = np.array([certAcc, certInacc, uncertAcc, uncertInacc])
+    serendipityM[serendipityM < 0] = 0
 
     return serendipityM
