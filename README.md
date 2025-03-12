@@ -53,15 +53,24 @@ plot_class_spec(y, result)
 
 |Reliability|Overconfidence|Underconfidence|Serendipity|
 |:---------:|:------------:|:-------------:|:---------:|
-|     |    |     |          |
+| 0.921169  |      0.0     |    0.078831   |     0.0   |
 
 ### Class-specific serendipity matrix
 
 |CLASS_NAME|Reliability|Overconfidence|Underconfidence|Serendipity|
 |:--------:|:---------:|:------------:|:-------------:|:---------:|
-|    |     |    |     |          |
-|    |     |    |     |          |
-|    |     |    |     |          |
+|    0     |  0.967680 |     0.0      |    0.032320   |     0.0   |
+|    1     |  0.905674 |     0.0      |    0.094326   |     0.0   |
+|    2     |  0.928402 |     0.0      |    0.071598   |     0.0   |
+|    3     |  0.910044 |     0.0      |    0.089956   |     0.0   |
+|    4     |  0.933780 |     0.0      |    0.066220   |     0.0   |
+|    5     |  0.918910 |     0.0      |    0.081090   |     0.0   |
+|    6     |  0.948890 |     0.0      |    0.051110   |     0.0   |
+|    7     |  0.938921 |     0.0      |    0.061079   |     0.0   |
+|    8     |  0.871113 |     0.0      |    0.128887   |     0.0   |
+|    9     |  0.887608 |     0.0      |    0.112392   |     0.0   |
+
+### Class-specific serendipity matrix horizontal bar chart
 
 ![Class-specific serendipity matrix](Resources/Example_class-specific_serendipity_matrix_for_digits_dataset.png)
 
