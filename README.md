@@ -26,10 +26,11 @@ pip install .
 ```python
 from serendipity_matrix import class_indep_matrix, class_spec_matrix, plot_class_spec
 from sklearn.naive_bayes import GaussianNB
-from sklearn.datasets import load_digits
+from ucimlrepo import fetch_ucirepo
 
 # Loads the dataset
-X, y = load_digits(return_X_y=True)
+wine_quality  = fetch_ucirepo(id=186) 
+X, y = wine_quality.data.features, wine_quality.data.targets.squeeze()
 
 # Training and predict
 model = GaussianNB().fit(X, y)
@@ -53,26 +54,23 @@ plot_class_spec(y, result)
 
 |Reliability|Overconfidence|Underconfidence|Serendipity|
 |:---------:|:------------:|:-------------:|:---------:|
-| 0.85208   |   0.134924   |    0.006851   |  0.006145 |
+|  0.26401  |    0.29623   |    0.318717   |  0.021864 |
 
 ### Class-specific serendipity matrix
 
 |CLASS_NAME|Reliability|Overconfidence|Underconfidence|Serendipity|
 |:--------:|:---------:|:------------:|:-------------:|:---------:|
-|    0     |  0.988850 |  0.010500    |    0.000650   |7.49955e-19|
-|    1     |  0.822048 |  0.160756    |    0.009725   |7.47143e-03|
-|    2     |  0.954939 |  0.017090    |    0.004263   |2.37083e-02|
-|    3     |  0.936688 |  0.052884    |    0.002245   |8.18263e-03|
-|    4     |  0.966523 |  0.018899    |    0.001481   |1.30976e-02|
-|    5     |  0.910906 |  0.081227    |    0.004087   |3.78039e-03|
-|    6     |  0.959340 |  0.036419    |    0.004240   |4.17679e-32|
-|    7     |  0.721232 |  0.268712    |    0.010053   |3.59522e-06|
-|    8     |  0.578063 |  0.398610    |    0.015763   |7.56317e-03|
-|    9     |  0.926385 |  0.057183    |    0.009373   |7.05917e-03|
+|    3     |  0.072567 |  0.493307    |    0.412262   |  0.021864 |
+|    4     |  0.054267 |  0.310598    |    0.597766   |  0.037369 |
+|    5     |  0.383453 |  0.308486    |    0.198692   |  0.109368 |
+|    6     |  0.272532 |  0.264399    |    0.267862   |  0.195207 |
+|    7     |  0.227578 |  0.400299    |    0.308644   |  0.063479 |
+|    8     |  0.010690 |  0.017746    |    0.902782   |  0.068782 |
+|    9     |  0.031477 |  0.137502    |    0.822256   |  0.008765 |
 
 ### Class-specific serendipity matrix horizontal bar chart
 
-![Class-specific serendipity matrix](Resources/Example_class-specific_serendipity_matrix_for_digits_dataset.png)
+![Class-specific serendipity matrix](Resources/Example_class-specific_serendipity_matrix_for_wine_dataset.png)
 
 
 ## Citation
