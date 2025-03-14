@@ -38,7 +38,11 @@ def class_indep_matrix(y_true, y_score, abs_tolerance=1e-8):
         )
     
     certTypes = ["Reliability","Overconfidence","Underconfidence","Serendipity"]
-    
+
+    # Checks y_true data type
+    if not isinstance(y_true, np.ndarray):
+        y_true = y_true.to_numpy()
+
     # Classes and size of the test
     classes = np.unique(y_true)
     tam = y_true.shape[0]
@@ -91,6 +95,10 @@ def class_spec_matrix(y_true, y_score, abs_tolerance=1e-8):
     
     certTypes = ["Reliability","Overconfidence","Underconfidence","Serendipity"]
 
+    # Checks y_true data type
+    if not isinstance(y_true, np.ndarray):
+        y_true = y_true.to_numpy()
+    
     # Classes of the test
     classes = np.unique(y_true)
 
@@ -142,7 +150,11 @@ def plot_class_spec(y_true, y_score, output_fig_path = None):
     if output_fig_path is not None:
         if type(output_fig_path) is not str:
             raise ValueError("Given path should be a string.")
-        
+    
+    # Checks y_true data type
+    if not isinstance(y_true, np.ndarray):
+        y_true = y_true.to_numpy()
+
     # Classes of the test
     classes = np.unique(y_true)
 
@@ -154,7 +166,7 @@ def plot_class_spec(y_true, y_score, output_fig_path = None):
 
     # Variable declaration for a suitable format
     if output_fig_path == None:
-        plt.figure(figsize=(12, max(4,len(classes)*0.5)))
+        plt.figure(figsize=(12, max(4,len(classes)*0.4)))
         pos = -0.00017 * len(classes)**2 + 0.0094 * len(classes) - 0.177 # ax2 + bx + c
         height = 0.05
         pad = 10
