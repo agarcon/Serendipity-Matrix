@@ -51,7 +51,7 @@ if __name__ == '__main__':
 
 #### Class-specific serendipity matrix horizontal bar chart
 
-![Class-specific serendipity matrix](res/wine.pdf)
+![Class-specific serendipity matrix](res/wine.png)
 
 ## With cross-validation
 
@@ -128,4 +128,4 @@ if __name__ == '__main__':
 
 #### Class-specific serendipity matrix horizontal bar chart
 
-![Class-specific serendipity matrix](res/leukemia.pdf)
+![Class-specific serendipity matrix](res/leukemia.png)
