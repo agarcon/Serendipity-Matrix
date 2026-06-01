@@ -1,5 +1,4 @@
 <header style="text-align:center; padding:20px;">
-  <h1>Serendipity Matrix</h1>
   <p>The package provides the methods to provide the serendipity matrix and for visualizing the serendipity matrix in a horizontal bar chart. The serendipity matrix is an innovative method to understand the behavior of a prediction model for classification problems.
 
 This matrix provides information about the degree of certainty that the classifier has in its own predictions, indicating whether it is robust and reliable or uncertain and doubtful. This method has two variants: the class-independent serendipity matrix and the class-specific serendipity matrix depending on the kind of analysis required.
